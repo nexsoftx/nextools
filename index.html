@@ -5132,9 +5132,9 @@
         padding: 20px 16px;
       }
       #nt-2fa-module .toast {
-        left: 12px;
-        right: 12px;
-        bottom: 16px;
+        left: auto !important;
+        right: 14px !important;
+        bottom: 16px !important;
         padding: 12px 16px;
         font-size: 0.85rem;
       }
@@ -7021,36 +7021,395 @@
             box-shadow: 0 10px 22px -6px rgba(91, 78, 255, 0.2) !important;
         }
 
-        /* 4. Glossy Semi-Transparent Bottom Toast Popup */
+        /* 4. Bottom-Right Aesthetic Frosted Glass Toast Popup + Random Name Generator Studio Styles */
         .toast-container {
             position: fixed !important;
-            bottom: 28px !important;
-            left: 50% !important;
-            right: auto !important;
-            transform: translateX(-50%) !important;
-            z-index: 99999 !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            z-index: 2147483647 !important;
             display: flex !important;
             flex-direction: column !important;
-            align-items: center !important;
+            align-items: flex-end !important;
             gap: 10px !important;
             pointer-events: none !important;
+            max-width: calc(100vw - 32px) !important;
         }
+        .custom-toast,
         .toast-msg {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.74) 0%, rgba(49, 46, 129, 0.72) 100%) !important;
-            backdrop-filter: blur(18px) saturate(190%) !important;
-            -webkit-backdrop-filter: blur(18px) saturate(190%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.28) !important;
-            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
-            color: #ffffff !important;
-            border-radius: 999px !important;
-            padding: 12px 24px !important;
+            pointer-events: auto !important;
+            background: rgba(255, 255, 255, 0.68) !important;
+            backdrop-filter: blur(20px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.65) !important;
+            outline: 1px solid rgba(91, 78, 255, 0.24) !important;
+            box-shadow: 0 14px 36px rgba(15, 23, 42, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.85) !important;
+            color: var(--text-main) !important;
+            border-radius: 14px !important;
+            padding: 12px 18px !important;
             font-size: 13.5px !important;
             font-weight: 700 !important;
             letter-spacing: 0.1px !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 10px !important;
-            animation: ntToastPopIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+            animation: ntToastPopIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+        }
+        [data-theme="dark"] .custom-toast,
+        [data-theme="dark"] .toast-msg {
+            background: rgba(19, 24, 38, 0.68) !important;
+            border: 1px solid rgba(255, 255, 255, 0.16) !important;
+            outline: 1px solid rgba(108, 92, 231, 0.35) !important;
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.48), inset 0 1px 1px rgba(255, 255, 255, 0.12) !important;
+            color: #f8fafc !important;
+        }
+        #nt-2fa-module .toast {
+            position: fixed !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            left: auto !important;
+            background: rgba(255, 255, 255, 0.68) !important;
+            backdrop-filter: blur(20px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+            border: 1px solid rgba(91, 78, 255, 0.32) !important;
+            box-shadow: 0 14px 36px rgba(15, 23, 42, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.85) !important;
+            color: var(--text-main) !important;
+            border-radius: 14px !important;
+        }
+        [data-theme="dark"] #nt-2fa-module .toast {
+            background: rgba(19, 24, 38, 0.72) !important;
+            border: 1px solid rgba(108, 92, 231, 0.4) !important;
+            color: #f8fafc !important;
+        }
+
+        /* =========================================================
+           RANDOM NAME GENERATOR (FAKENAMEGENERATOR STUDIO) STYLES
+           ========================================================= */
+        .nt-rng-wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .nt-rng-intro {
+            font-size: 13.8px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            background: linear-gradient(135deg, rgba(91, 78, 255, 0.07) 0%, rgba(14, 165, 233, 0.05) 100%);
+            border: 1.5px solid var(--primary-border);
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .nt-rng-controls-card {
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-color);
+            border-radius: 16px;
+            padding: 22px 24px;
+            box-shadow: 0 8px 26px rgba(15, 23, 42, 0.04);
+        }
+        .nt-rng-controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1.35fr auto auto;
+            gap: 14px;
+            align-items: end;
+        }
+        @media (max-width: 1024px) {
+            .nt-rng-controls-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 640px) {
+            .nt-rng-controls-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .nt-rng-generate-btn {
+            height: 42px;
+            padding: 0 24px;
+            border-radius: 10px;
+            background: var(--gradient-brand);
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 18px rgba(91, 78, 255, 0.28);
+            white-space: nowrap;
+        }
+        .nt-rng-generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(91, 78, 255, 0.38);
+        }
+        .nt-rng-subbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 12.5px;
+            color: var(--text-secondary);
+        }
+        .nt-rng-nameset-links a {
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-right: 6px;
+        }
+        .nt-rng-nameset-links a:hover {
+            color: var(--primary-hover);
+        }
+        .nt-rng-adv-panel {
+            display: none;
+            margin-top: 14px;
+            padding: 16px;
+            background: var(--bg-subtle);
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+        }
+        .nt-rng-adv-panel.open {
+            display: block;
+            animation: fadeIn 0.22s ease-out;
+        }
+        .nt-rng-identity-hero {
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-color);
+            border-radius: 16px;
+            padding: 26px 28px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nt-rng-avatar-wrap {
+            width: 148px;
+            height: 148px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 38%, #fef9e7 0%, #f5ebd6 75%, #eadbc0 100%);
+            border: 3px solid var(--border-color);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+        [data-theme="dark"] .nt-rng-avatar-wrap {
+            border-color: var(--primary-border);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+        }
+        .nt-rng-avatar-wrap svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .nt-rng-hero-info {
+            flex: 1;
+            min-width: 260px;
+        }
+        .nt-rng-eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .nt-rng-fullname-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .nt-rng-fullname {
+            font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .nt-rng-copy-sq {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1.5px solid var(--border-color);
+            background: var(--bg-subtle);
+            color: var(--text-secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        .nt-rng-copy-sq:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+        .nt-rng-address-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .nt-rng-address-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.45;
+        }
+        .nt-rng-meaning-line {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+        .nt-rng-meaning-line a {
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .nt-rng-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .nt-rng-sections-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .nt-rng-sections-grid {
+                grid-template-columns: 1fr;
+            }
+            .nt-rng-identity-hero {
+                padding: 20px 18px;
+                gap: 18px;
+            }
+        }
+        .nt-rng-sec-card {
+            background: var(--bg-surface);
+            border: 1.5px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 22px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.035);
+            display: flex;
+            flex-direction: column;
+        }
+        .nt-rng-sec-hdr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-bottom: 12px;
+            margin-bottom: 6px;
+            border-bottom: 1.5px solid var(--border-color);
+        }
+        .nt-rng-sec-title {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nt-rng-sec-title i {
+            color: var(--primary);
+        }
+        .nt-rng-copy-sec-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .nt-rng-copy-sec-btn:hover {
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+        .nt-rng-field-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .nt-rng-field-row {
+            display: grid;
+            grid-template-columns: 145px 1fr auto;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nt-rng-field-row:last-child {
+            border-bottom: none;
+            padding-bottom: 2px;
+        }
+        @media (max-width: 540px) {
+            .nt-rng-field-row {
+                grid-template-columns: 1fr auto;
+                gap: 6px;
+            }
+            .nt-rng-field-val {
+                grid-column: 1 / 2;
+            }
+        }
+        .nt-rng-field-lbl {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .nt-rng-field-val {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--text-main);
+            min-width: 0;
+            word-break: break-word;
+        }
+        .nt-rng-field-sub {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .nt-rng-field-sub a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .nt-rng-field-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
         @keyframes ntToastPopIn {
             0% { opacity: 0; transform: translateY(20px) scale(0.94); }
@@ -7237,11 +7596,11 @@
             </div>
 
             <div class="nt-filter-pills" id="ntCategoryPills">
-                <button type="button" class="nt-filter-pill active" data-cat="all" onclick="ntFilterCategory('all')">All Tools (117)</button>
+                <button type="button" class="nt-filter-pill active" data-cat="all" onclick="ntFilterCategory('all')">All Tools (118)</button>
                 <button type="button" class="nt-filter-pill" data-cat="image-cutout" onclick="ntFilterCategory('image-cutout')">AI Cutout &amp; Upscale</button>
                 <button type="button" class="nt-filter-pill" data-cat="image-color" onclick="ntFilterCategory('image-color')">Color &amp; Lighting</button>
                 <button type="button" class="nt-filter-pill" data-cat="image-convert" onclick="ntFilterCategory('image-convert')">Repair &amp; Convert</button>
-                <button type="button" class="nt-filter-pill" data-cat="core" onclick="ntFilterCategory('core')">Temp Mail &amp; 2FA Tools (10)</button>
+                <button type="button" class="nt-filter-pill" data-cat="core" onclick="ntFilterCategory('core')">Temp Mail &amp; 2FA Tools (11)</button>
                 <button type="button" class="nt-filter-pill" data-cat="pdf" onclick="ntFilterCategory('pdf')"><i class="fa-solid fa-file-pdf" style="color:#ef4444; margin-right:4px;"></i> PDF Tools (33)</button>
                 <button type="button" class="nt-filter-pill" data-cat="facebook" onclick="ntFilterCategory('facebook')">Facebook, City List &amp; Case (9)</button>
                 <button type="button" class="nt-filter-pill" data-cat="social" onclick="ntFilterCategory('social')">Instagram, TikTok &amp; X (8)</button>
@@ -9651,7 +10010,7 @@ KRUGS4ZANFZSAYJA" oninput="ntRenderBulk2FA()"></textarea>
                         <div style="margin-top:12px;"><span class="mode-pill-tag real"><i class="fa-solid fa-circle-check"></i> Pro Studio Account Active</span></div>
                     </div>
                     <div style="display:flex; gap:10px;">
-                        <button type="button" class="primary-btn" style="flex:1;" onclick="ntNavigateSitePage('home')"><i class="fa-solid fa-rocket"></i> Explore All 117 Tools</button>
+                        <button type="button" class="primary-btn" style="flex:1;" onclick="ntNavigateSitePage('home')"><i class="fa-solid fa-rocket"></i> Explore All 118 Tools</button>
                         <button type="button" class="secondary-btn" onclick="ntSignOutAccount()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
                     </div>
                 </div>
@@ -9700,7 +10059,7 @@ KRUGS4ZANFZSAYJA" oninput="ntRenderBulk2FA()"></textarea>
                     </p>
                     <div class="nt-footer-status-badge">
                         <span class="status-dot"></span>
-                        <span>117 Pro Tools Online &bull; 100% Client-Side Privacy</span>
+                        <span>118 Pro Tools Online &bull; 100% Client-Side Privacy</span>
                     </div>
                 </div>
 
@@ -9710,6 +10069,7 @@ KRUGS4ZANFZSAYJA" oninput="ntRenderBulk2FA()"></textarea>
                     <ul class="nt-footer-list">
                         <li><a onclick="ntOpenTool('temp-mail')">Temp Mail Generator</a></li>
                         <li><a onclick="ntOpenTool('temp-mail-domains')">Temp Mail Domains (30+)</a></li>
+                        <li><a onclick="ntOpenTool('random-name-generator')">Random Name Generator</a></li>
                         <li><a onclick="ntOpenTool('2fa-auth')">2FA Live Authenticator</a></li>
                         <li><a onclick="ntOpenTool('2fa-bulk')">Bulk 2FA Code Generator</a></li>
                         <li><a onclick="ntOpenTool('2fa-qr-gen')">2FA QR Code Generator</a></li>
@@ -9753,7 +10113,7 @@ KRUGS4ZANFZSAYJA" oninput="ntRenderBulk2FA()"></textarea>
                 <div class="nt-footer-col">
                     <h4 class="nt-footer-heading"><i class="fa-solid fa-compass"></i> Platform &amp; Legal</h4>
                     <ul class="nt-footer-list">
-                        <li><a onclick="ntNavigateSitePage('home')">Home (All 117 Tools)</a></li>
+                        <li><a onclick="ntNavigateSitePage('home')">Home (All 118 Tools)</a></li>
                         <li><a onclick="ntNavigateSitePage('auth')">Sign In / Create Account</a></li>
                         <li><a onclick="ntNavigateSitePage('privacy')">Privacy Policy</a></li>
                         <li><a onclick="ntNavigateSitePage('terms')">Terms &amp; Conditions</a></li>
@@ -16950,9 +17310,10 @@ Quick Test OTP Code: 582910`,
             { id: 'image-watermark', title: 'Add Image Watermark', badge: 'PROTECT', color: 'purple', icon: 'fa-solid fa-stamp', cat: 'image', subcat: 'image-color', desc: 'Stamp custom text or tiled watermarks on photos.' },
             { id: 'ephotor', title: 'Ephotor Studio', badge: 'EDITOR', color: 'amber', icon: 'fa-solid fa-sliders', cat: 'image', subcat: 'image-color', desc: 'Rotate, flip, aspect crop & apply pro filters.' },
 
-            // --- SECTION 2: CORE TEMP MAIL, SEPARATED 2FA TOOLS & POPULAR HITOOLS (10 TOOLS) ---
+            // --- SECTION 1 (CORE): TEMP MAIL, RANDOM NAME GENERATOR, 2FA TOOLS & POPULAR HITOOLS (12 TOOLS) ---
             { id: 'temp-mail', title: 'Temp Mail Generator', badge: 'LIVE INBOX', color: 'purple', icon: 'fa-solid fa-envelope-open-text', cat: 'core', subcat: 'core', desc: 'Instant multi-domain temporary email & real-time OTP inbox.' },
             { id: 'temp-mail-domains', title: 'Temp Mail Domains (30+)', badge: 'DUAL ENGINE', color: 'green', icon: 'fa-solid fa-globe', cat: 'core', subcat: 'core', desc: 'Manage live MX API domains & 15+ classic demo extensions.' },
+            { id: 'random-name-generator', title: 'Random Name Generator', badge: 'FAKE IDENTITY', color: 'rose', icon: 'fa-solid fa-address-card', cat: 'core', subcat: 'core', desc: 'Generate full random identities (name, address, phone, SSN, card, work & avatar).' },
             { id: '2fa-auth', title: '2FA Live Authenticator', badge: 'LIVE TOTP', color: 'cyan', icon: 'fa-solid fa-shield-halved', cat: 'core', subcat: 'core', desc: 'Real-time 6-digit 2FA TOTP code generator & optical QR scanner.' },
             { id: '2fa-bulk', title: 'Bulk 2FA Code Generator', badge: 'BULK 1000x', color: 'violet', icon: 'fa-solid fa-layer-group', cat: 'core', subcat: 'core', desc: 'Generate live 6-digit 2FA codes for up to 1,000 keys at once.' },
             { id: '2fa-qr-gen', title: '2FA QR Code Generator', badge: 'SETUP QR', color: 'purple', icon: 'fa-solid fa-qrcode', cat: 'core', subcat: 'core', desc: 'Create scannable Google Authenticator QR codes from keys or URIs.' },
@@ -20016,10 +20377,1497 @@ Quick Test OTP Code: 582910`,
             showToast(`Exported ${arr.length} ${type} UIDs as .${ext.toUpperCase()}!`, 'success');
         }
 
+
+        // =========================================================
+        // RANDOM NAME GENERATOR STUDIO (FAKENAMEGENERATOR.COM CLONE)
+        // - Custom NexTools Dropdowns (Gender, Name Set, Country)
+        // - Checkbox to Hide Middle Initial ("No Middle Letter")
+        // - Illustrated Vintage Circular Portrait Avatar (matching FNG)
+        // - All 6 Sections: Contact, Online, Personal, Finance & IDs,
+        //   Work & Physical, Other + Per-Field Copy, Section Copy,
+        //   Copy All as JSON/CSV/TXT, Open Temp Mail Inbox, Show QR
+        // =========================================================
+        let rngGender = safeGetStorage('nt_rng_gender_v1', 'random'); // 'random', 'male', 'female'
+        let rngNameSet = safeGetStorage('nt_rng_nameset_v1', 'us');
+        let rngCountry = safeGetStorage('nt_rng_country_v1', 'us');
+        let rngNoMiddleInitial = safeGetStorage('nt_rng_no_mid_v1', false);
+        let rngMinAge = safeGetStorage('nt_rng_min_age_v1', 19);
+        let rngMaxAge = safeGetStorage('nt_rng_max_age_v1', 85);
+        let rngCardBrand = safeGetStorage('nt_rng_card_brand_v1', 'Mastercard');
+        let rngCountrySearchFilter = '';
+        let rngNameSetSearchFilter = '';
+        let rngCurrentIdentity = null;
+        let rngSavedIdentities = safeGetStorage('nt_rng_saved_list_v1', []);
+
+        const RNG_NAME_SETS = [
+            { code: 'us', name: 'American', tag: 'US', region: 'us' },
+            { code: 'ar', name: 'Arabic', tag: 'AR', region: 'ae' },
+            { code: 'au', name: 'Australian', tag: 'AU', region: 'au' },
+            { code: 'bd', name: 'Bengali', tag: 'BD', region: 'bd' },
+            { code: 'br', name: 'Brazil', tag: 'BR', region: 'br' },
+            { code: 'celat', name: 'Chechen (Latin)', tag: 'CE', region: 'slavic_east' },
+            { code: 'ch', name: 'Chinese', tag: 'CN', region: 'cn' },
+            { code: 'hr', name: 'Croatian', tag: 'HR', region: 'balkan' },
+            { code: 'cs', name: 'Czech', tag: 'CZ', region: 'cz' },
+            { code: 'dk', name: 'Danish', tag: 'DK', region: 'dk' },
+            { code: 'nl', name: 'Dutch', tag: 'NL', region: 'nl' },
+            { code: 'en', name: 'England / Wales', tag: 'GB', region: 'gb' },
+            { code: 'fi', name: 'Finnish', tag: 'FI', region: 'fi' },
+            { code: 'fr', name: 'French', tag: 'FR', region: 'fr' },
+            { code: 'de', name: 'German', tag: 'DE', region: 'de' },
+            { code: 'gr', name: 'Greek', tag: 'GR', region: 'gr' },
+            { code: 'sp', name: 'Hispanic', tag: 'ES', region: 'es' },
+            { code: 'hu', name: 'Hungarian', tag: 'HU', region: 'hu' },
+            { code: 'ig', name: 'Igbo', tag: 'NG', region: 'ng' },
+            { code: 'in', name: 'Indian', tag: 'IN', region: 'in' },
+            { code: 'it', name: 'Italian', tag: 'IT', region: 'it' },
+            { code: 'jp', name: 'Japanese', tag: 'JP', region: 'jp' },
+            { code: 'kr', name: 'Korean', tag: 'KR', region: 'kr' },
+            { code: 'no', name: 'Norwegian', tag: 'NO', region: 'no' },
+            { code: 'fa', name: 'Persian', tag: 'IR', region: 'ir' },
+            { code: 'pl', name: 'Polish', tag: 'PL', region: 'pl' },
+            { code: 'ru', name: 'Russian', tag: 'RU', region: 'slavic_east' },
+            { code: 'gd', name: 'Scottish', tag: 'SCT', region: 'gb' },
+            { code: 'sl', name: 'Slovenian', tag: 'SI', region: 'balkan' },
+            { code: 'sw', name: 'Swedish', tag: 'SE', region: 'se' },
+            { code: 'th', name: 'Thai', tag: 'TH', region: 'th' },
+            { code: 'tr', name: 'Turkish', tag: 'TR', region: 'tr' },
+            { code: 'vn', name: 'Vietnamese', tag: 'VN', region: 'vn' },
+            { code: 'lovecraft', name: 'Lovecraftian (Themed)', tag: 'THEME', region: 'us' },
+            { code: 'oz', name: 'Oz (Themed)', tag: 'THEME', region: 'us' }
+        ];
+
+        const RNG_COUNTRY_ADDRESS_PROFILES = {
+            us: {
+                dialCode: '1',
+                ssnLabel: 'SSN',
+                streets: ['Fairway Drive', 'Parker Drive', 'Oakwood Avenue', 'Maple Lane', 'Sunset Boulevard', 'Cedar Street', 'Highland Road', 'Meadowbrook Lane', 'Willow Creek Rd', 'Pinehurst Way', 'Heritage Drive', 'Chestnut Street', 'Broadview Ave', 'Woodland Trace', 'Ridgeview Court', 'Sycamore Drive'],
+                locations: [
+                    { city: 'Ukiah', state: 'CA', zip: '95482', area: '707', lat: 39.1502, lon: -123.2078 },
+                    { city: 'Beachwood', state: 'OH', zip: '44122', area: '216', lat: 41.4645, lon: -81.5087 },
+                    { city: 'Austin', state: 'TX', zip: '78701', area: '512', lat: 30.2672, lon: -97.7431 },
+                    { city: 'Seattle', state: 'WA', zip: '98101', area: '206', lat: 47.6062, lon: -122.3321 },
+                    { city: 'Orlando', state: 'FL', zip: '32801', area: '407', lat: 28.5383, lon: -81.3792 },
+                    { city: 'Denver', state: 'CO', zip: '80202', area: '303', lat: 39.7392, lon: -104.9903 },
+                    { city: 'Charlotte', state: 'NC', zip: '28202', area: '704', lat: 35.2271, lon: -80.8431 },
+                    { city: 'Phoenix', state: 'AZ', zip: '85004', area: '602', lat: 33.4484, lon: -112.0740 },
+                    { city: 'Portland', state: 'OR', zip: '97204', area: '503', lat: 45.5152, lon: -122.6784 },
+                    { city: 'Nashville', state: 'TN', zip: '37203', area: '615', lat: 36.1627, lon: -86.7816 },
+                    { city: 'Boston', state: 'MA', zip: '02116', area: '617', lat: 42.3601, lon: -71.0589 },
+                    { city: 'Chicago', state: 'IL', zip: '60611', area: '312', lat: 41.8781, lon: -87.6298 }
+                ]
+            },
+            gb: {
+                dialCode: '44',
+                ssnLabel: 'National Insurance',
+                streets: ['High Street', 'Station Road', 'Church Lane', 'Victoria Road', 'Manor Way', 'Queensway', 'Kingsway', 'Park Avenue', 'Windsor Road'],
+                locations: [
+                    { city: 'London', state: 'ENG', zip: 'SW1A 1AA', area: '020', lat: 51.5074, lon: -0.1278 },
+                    { city: 'Manchester', state: 'ENG', zip: 'M1 1AE', area: '0161', lat: 53.4808, lon: -2.2426 },
+                    { city: 'Birmingham', state: 'ENG', zip: 'B1 1BB', area: '0121', lat: 52.4862, lon: -1.8904 },
+                    { city: 'Edinburgh', state: 'SCT', zip: 'EH1 1YZ', area: '0131', lat: 55.9533, lon: -3.1883 },
+                    { city: 'Bristol', state: 'ENG', zip: 'BS1 4ST', area: '0117', lat: 51.4545, lon: -2.5879 }
+                ]
+            },
+            ca: {
+                dialCode: '1',
+                ssnLabel: 'SIN',
+                streets: ['Yonge Street', 'Bayview Avenue', 'Robson Street', 'Saint Catherine St', 'Jasper Avenue', 'Wellington Street', 'Portage Avenue'],
+                locations: [
+                    { city: 'Toronto', state: 'ON', zip: 'M5H 2N2', area: '416', lat: 43.6532, lon: -79.3832 },
+                    { city: 'Vancouver', state: 'BC', zip: 'V6B 1A1', area: '604', lat: 49.2827, lon: -123.1207 },
+                    { city: 'Montreal', state: 'QC', zip: 'H3B 2Y5', area: '514', lat: 45.5017, lon: -73.5673 },
+                    { city: 'Calgary', state: 'AB', zip: 'T2P 1J9', area: '403', lat: 51.0447, lon: -114.0719 }
+                ]
+            },
+            au: {
+                dialCode: '61',
+                ssnLabel: 'TFN',
+                streets: ['George Street', 'Collins Street', 'Queen Street', 'North Terrace', 'St Georges Terrace', 'Macquarie Street'],
+                locations: [
+                    { city: 'Sydney', state: 'NSW', zip: '2000', area: '02', lat: -33.8688, lon: 151.2093 },
+                    { city: 'Melbourne', state: 'VIC', zip: '3000', area: '03', lat: -37.8136, lon: 144.9631 },
+                    { city: 'Brisbane', state: 'QLD', zip: '4000', area: '07', lat: -27.4705, lon: 153.0260 },
+                    { city: 'Perth', state: 'WA', zip: '6000', area: '08', lat: -31.9505, lon: 115.8605 }
+                ]
+            },
+            bd: {
+                dialCode: '880',
+                ssnLabel: 'NID',
+                streets: ['Gulshan Avenue', 'Banani Road 11', 'Dhanmondi 27', 'Agrabad Commercial Area', 'Zindabazar Main Rd', 'Khan Jahan Ali Road', 'Boalia Model Road'],
+                locations: [
+                    { city: 'Dhaka', state: 'DHK', zip: '1212', area: '17', lat: 23.7925, lon: 90.4078 },
+                    { city: 'Chattogram', state: 'CTG', zip: '4100', area: '18', lat: 22.3569, lon: 91.7832 },
+                    { city: 'Khulna', state: 'KHL', zip: '9100', area: '19', lat: 22.8456, lon: 89.5403 },
+                    { city: 'Sylhet', state: 'SYL', zip: '3100', area: '16', lat: 24.8949, lon: 91.8687 },
+                    { city: 'Rajshahi', state: 'RAJ', zip: '6000', area: '15', lat: 24.3745, lon: 88.6042 }
+                ]
+            },
+            de: {
+                dialCode: '49',
+                ssnLabel: 'Steuer-ID',
+                streets: ['Friedrichstraße', 'Kurfürstendamm', 'Maximilianstraße', 'Zeil', 'Königsallee', 'Mönckebergstraße'],
+                locations: [
+                    { city: 'Berlin', state: 'BE', zip: '10117', area: '030', lat: 52.5200, lon: 13.4050 },
+                    { city: 'Munich', state: 'BY', zip: '80331', area: '089', lat: 48.1351, lon: 11.5820 },
+                    { city: 'Frankfurt', state: 'HE', zip: '60313', area: '069', lat: 50.1109, lon: 8.6821 },
+                    { city: 'Hamburg', state: 'HH', zip: '20095', area: '040', lat: 53.5511, lon: 9.9937 }
+                ]
+            },
+            in: {
+                dialCode: '91',
+                ssnLabel: 'PAN / ID',
+                streets: ['MG Road', 'Brigade Road', 'Park Street', 'Connaught Place', 'Marine Drive', 'Banjara Hills Rd'],
+                locations: [
+                    { city: 'Mumbai', state: 'MH', zip: '400001', area: '98', lat: 19.0760, lon: 72.8777 },
+                    { city: 'Bengaluru', state: 'KA', zip: '560001', area: '99', lat: 12.9716, lon: 77.5946 },
+                    { city: 'New Delhi', state: 'DL', zip: '110001', area: '97', lat: 28.6139, lon: 77.2090 },
+                    { city: 'Kolkata', state: 'WB', zip: '700016', area: '96', lat: 22.5726, lon: 88.3639 }
+                ]
+            }
+        };
+
+        const RNG_COMPANIES = [
+            'Edge Yard Service', 'Apex Horizon Dynamics', 'Pinnacle Logistics Group', 'Vanguard Cloud Systems',
+            'BlueRiver Manufacturing', 'Silverline Retail Corp', 'Crescent Bay Holdings', 'Summit Peak Financial',
+            'Sterling BioLabs', 'NorthStar Media Works', 'Quantum Pulse Engineering', 'Atlas Global Supply',
+            'Meridian Health Partners', 'Pacific Crest Architects', 'Redwood Digital Studio', 'Evergreen Field Services'
+        ];
+
+        const RNG_OCCUPATIONS = [
+            'Cabinetmaker', 'Senior Systems Analyst', 'Financial Controller', 'Civil Project Engineer',
+            'Clinical Pharmacist', 'UX/UI Product Designer', 'Operations Coordinator', 'Data Science Specialist',
+            'Architectural Technologist', 'Quality Assurance Lead', 'Supply Chain Manager', 'Network Security Auditor',
+            'Biomedical Technician', 'Commercial Underwriter', 'Executive Account Director', 'Precision Machinist'
+        ];
+
+        const RNG_VEHICLES = [
+            '2003 Buick Rendezvous', '2021 Toyota RAV4 Hybrid', '2019 Ford F-150 Lariat', '2022 Honda Civic Touring',
+            '2018 Chevrolet Equinox', '2020 Tesla Model 3 Long Range', '2017 Jeep Grand Cherokee', '2023 Subaru Outback',
+            '2016 BMW 328i xDrive', '2021 Hyundai Tucson SEL', '2015 Mazda CX-5 Grand Touring', '2022 Audi Q5 Quattro'
+        ];
+
+        const RNG_COLORS = ['Black', 'Navy Blue', 'Emerald Green', 'Crimson Red', 'Charcoal Gray', 'Royal Purple', 'Silver', 'Teal', 'Burgundy', 'Olive', 'Cobalt Blue', 'Amber'];
+        const RNG_BLOOD_TYPES = ['O+', 'A+', 'B+', 'AB+', 'O-', 'A-', 'B-', 'AB-'];
+        const RNG_DOMAINS_WEB = ['prestovps.com', 'nexsoftx.io', 'cloudmetric.org', 'veloxware.net', 'orbitstack.co', 'skylinehub.com', 'hypergrid.dev', 'pulseworks.io', 'craftnode.com', 'vertexdata.org'];
+        const RNG_EMAIL_DOMAINS = ['armyspy.com', 'teleworm.us', 'dayrep.com', 'rhyta.com', 'jourrapide.com', 'cuvox.de', 'einrot.com', 'fleckens.hu', 'gustr.com', 'superrito.com'];
+        const RNG_USER_AGENTS = [
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/131.0.0.0 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15',
+            'Mozilla/5.0 (X11; Linux x86_64; rv:132.0) Gecko/20100101 Firefox/132.0',
+            'Mozilla/5.0 (Linux; Android 15; Pixel 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.81 Mobile Safari/537.36'
+        ];
+
+        function ntGetZodiacSign(month, day) {
+            const signs = [
+                { name: 'Capricorn', m: 1, d: 19 }, { name: 'Aquarius', m: 2, d: 18 },
+                { name: 'Pisces', m: 3, d: 20 }, { name: 'Aries', m: 4, d: 19 },
+                { name: 'Taurus', m: 5, d: 20 }, { name: 'Gemini', m: 6, d: 20 },
+                { name: 'Cancer', m: 7, d: 22 }, { name: 'Leo', m: 8, d: 22 },
+                { name: 'Virgo', m: 9, d: 22 }, { name: 'Libra', m: 10, d: 22 },
+                { name: 'Scorpio', m: 11, d: 21 }, { name: 'Sagittarius', m: 12, d: 21 },
+                { name: 'Capricorn', m: 12, d: 31 }
+            ];
+            for (const s of signs) {
+                if (month < s.m || (month === s.m && day <= s.d)) return s.name;
+            }
+            return 'Capricorn';
+        }
+
+        function ntGenerateUuidV4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function ntGenerateVinNumber() {
+            const chars = 'ABCDEFGHJKLMNPRSTUVWXYZ0123456789';
+            const prefixes = ['3G5DA03E', '1HGCM826', '2T1BURHE', '1FMCU0GD', '5YJ3E1EA', 'WBA3A5C5', 'JM1BL1SF'];
+            const pre = prefixes[Math.floor(Math.random() * prefixes.length)];
+            let tail = '';
+            for (let i = 0; i < 9; i++) tail += chars[Math.floor(Math.random() * chars.length)];
+            return pre + tail;
+        }
+
+        function ntGenerateTestCard(brand) {
+            if (brand === 'Visa') {
+                return { brand: 'Visa', number: '4111 1111 1111 1111', note: 'Stripe / Adyen test card' };
+            }
+            if (brand === 'Amex') {
+                return { brand: 'American Express', number: '3782 822463 10005', note: 'Adyen test card' };
+            }
+            if (brand === 'Discover') {
+                return { brand: 'Discover', number: '6011 1111 1111 1117', note: 'Sandbox test card' };
+            }
+            return { brand: 'Mastercard', number: '5555 5555 5555 4444', note: 'Adyen test card' };
+        }
+
+        function ntBuildIllustratedAvatarSvg(person) {
+            const s = Math.abs(person.seed || 12345);
+            const h1 = (s * 2654435761) >>> 0;
+            const h2 = (s * 2246822519 + 17) >>> 0;
+            const h3 = (s * 3266489917 + 53) >>> 0;
+            const pick = (arr, hash, shift = 0) => arr[((hash >>> shift) & 0xff) % arr.length];
+
+            const isFemale = person.gender === 'female';
+            const isSenior = person.age >= 60;
+
+            const bgPalettes = [
+                ['#fdfbf3', '#efe4cc'],
+                ['#eef6f0', '#cde3d4'],
+                ['#fdf2f2', '#f3d5d5'],
+                ['#eef4ff', '#d0e0fa'],
+                ['#f5f3ff', '#ddd6fe'],
+                ['#fef6ec', '#f6dfc2']
+            ];
+            const bgPair = pick(bgPalettes, h1, 0);
+
+            const skinTones = ['#fde2d1', '#f6d5be', '#eec19f', '#dfa77d', '#c6885b', '#9e633b'];
+            const skin = pick(skinTones, h1, 4);
+
+            const hairPalettes = isSenior
+                ? ['#e2e8f0', '#cbd5e1', '#94a3b8', '#d6d3d1']
+                : ['#18181b', '#3f2314', '#5c3317', '#854d0e', '#b45309', '#7c2d12', '#27272a'];
+            const hair = pick(hairPalettes, h2, 0);
+
+            const shirtPalettes = ['#3b82f6', '#4f46e5', '#0f766e', '#be123c', '#334155', '#7c3aed', '#b45309', '#059669', '#57534e'];
+            const shirt = pick(shirtPalettes, h2, 6);
+            const accentCol = pick(['#f59e0b', '#e11d48', '#0ea5e9', '#10b981', '#6366f1'], h3, 0);
+
+            // 4 Distinct Face Shapes
+            const facePaths = [
+                'M48 58 C48 34, 112 34, 112 58 C112 86, 98 106, 80 106 C62 106, 48 86, 48 58 Z', // Oval
+                'M47 60 C47 34, 113 34, 113 60 C113 90, 102 105, 80 105 C58 105, 47 90, 47 60 Z', // Round
+                'M49 56 C49 34, 111 34, 111 56 L109 86 C107 98, 95 106, 80 106 C65 106, 53 98, 51 86 Z', // Square Jaw
+                'M47 57 C47 34, 113 34, 113 57 C112 82, 95 104, 80 106 C65 104, 48 82, 47 57 Z'  // Heart
+            ];
+            const facePath = pick(facePaths, h1, 8);
+
+            // 6 Distinct Outfits
+            const outfitIdx = (h3 >>> 3) % 4;
+            let outfitSvg = '';
+            if (outfitIdx === 0) {
+                // Blazer + Shirt + Tie/Collar
+                outfitSvg = `
+                    <path d="M22 160 C26 123, 50 115, 80 115 C110 115, 134 123, 138 160 Z" fill="${shirt}" stroke="#1e293b" stroke-width="2.2"/>
+                    <path d="M62 115 L80 144 L98 115 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
+                    ${!isFemale ? `<path d="M76 122 L84 122 L83 152 L80 156 L77 152 Z" fill="${accentCol}" stroke="#1e293b" stroke-width="1.4"/>` : `<circle cx="80" cy="134" r="3" fill="${accentCol}" stroke="#1e293b" stroke-width="1.3"/>`}
+                `;
+            } else if (outfitIdx === 1) {
+                // Cozy Turtleneck
+                outfitSvg = `
+                    <path d="M22 160 C26 125, 50 116, 80 116 C110 116, 134 125, 138 160 Z" fill="${shirt}" stroke="#1e293b" stroke-width="2.2"/>
+                    <rect x="61" y="109" width="38" height="16" rx="6" fill="${shirt}" stroke="#1e293b" stroke-width="2"/>
+                    <line x1="64" y1="117" x2="96" y2="117" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+                `;
+            } else if (outfitIdx === 2) {
+                // Crewneck Sweater with Stripe
+                outfitSvg = `
+                    <path d="M22 160 C26 124, 52 116, 80 116 C108 116, 134 124, 138 160 Z" fill="${shirt}" stroke="#1e293b" stroke-width="2.2"/>
+                    <path d="M61 116 Q80 132 99 116" fill="none" stroke="#ffffff" stroke-width="3.5" opacity="0.8"/>
+                    <path d="M36 142 L124 142" stroke="${accentCol}" stroke-width="6" opacity="0.75"/>
+                `;
+            } else {
+                // Open Jacket + Tee
+                outfitSvg = `
+                    <path d="M22 160 C26 124, 50 116, 80 116 C110 116, 134 124, 138 160 Z" fill="${shirt}" stroke="#1e293b" stroke-width="2.2"/>
+                    <path d="M62 116 L66 160 L94 160 L98 116 Q80 128 62 116 Z" fill="#f8fafc" stroke="#1e293b" stroke-width="1.8"/>
+                    ${isFemale ? `<path d="M68 122 Q80 134 92 122" fill="none" stroke="#f59e0b" stroke-width="2"/>` : ''}
+                `;
+            }
+
+            // 6 Male + 6 Female Distinct Hairstyles (Back + Front Layers)
+            const hairIdx = (h2 >>> 10) % 6;
+            let backHairSvg = '';
+            let frontHairSvg = '';
+            if (isFemale) {
+                if (hairIdx === 0) {
+                    // Long Wavy Hair
+                    backHairSvg = `<path d="M36 62 C30 94, 34 122, 48 134 L112 134 C126 122, 130 94, 124 62 C120 30, 40 30, 36 62 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.2"/>`;
+                    frontHairSvg = `<path d="M44 62 C44 32, 65 24, 82 26 C103 24, 117 34, 116 62 C108 46, 94 40, 74 44 C58 47, 50 54, 44 62 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 1) {
+                    // Classic Chin Bob
+                    backHairSvg = `<path d="M40 60 C35 88, 40 108, 54 112 L106 112 C120 108, 125 88, 120 60 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.2"/>`;
+                    frontHairSvg = `<path d="M43 60 C44 30, 116 30, 117 60 C106 43, 86 42, 72 44 C56 46, 48 52, 43 60 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 2) {
+                    // High Top Bun / Updo
+                    backHairSvg = `<circle cx="80" cy="24" r="18" fill="${hair}" stroke="#1e293b" stroke-width="2.2"/><path d="M66 22 Q80 14 94 22" fill="none" stroke="#ffffff" stroke-width="1.3" opacity="0.35"/>`;
+                    frontHairSvg = `<path d="M46 58 C46 32, 114 32, 114 58 C104 42, 86 38, 74 40 C58 42, 50 50, 46 58 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 3) {
+                    // Voluminous Curly Afro
+                    backHairSvg = `<path d="M34 68 C22 46, 38 18, 62 22 C74 10, 96 12, 104 24 C126 24, 136 52, 124 72 C128 92, 116 108, 102 106 L58 106 C44 108, 30 90, 34 68 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.2"/>`;
+                    frontHairSvg = `<path d="M46 54 C54 38, 72 36, 80 42 C88 36, 106 38, 114 54 C104 46, 92 44, 80 46 C68 44, 56 46, 46 54 Z" fill="${hair}" stroke="#1e293b" stroke-width="1.8"/>`;
+                } else if (hairIdx === 4) {
+                    // Straight Bangs / Fringe
+                    backHairSvg = `<path d="M38 64 L36 124 L124 124 L122 64 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.2"/>`;
+                    frontHairSvg = `<path d="M45 54 C46 28, 114 28, 115 54 L104 52 L88 52 L72 52 L56 52 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else {
+                    // Short Pixie Cut
+                    backHairSvg = '';
+                    frontHairSvg = `<path d="M44 60 C40 28, 66 20, 86 24 C108 26, 120 40, 115 62 C106 46, 92 38, 70 42 C56 44, 48 52, 44 60 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                }
+            } else {
+                if (hairIdx === 0) {
+                    // Classic Side Part
+                    frontHairSvg = `<path d="M45 58 C44 29, 64 22, 84 24 C104 26, 116 36, 115 58 C108 42, 92 36, 74 39 C58 41, 50 47, 45 58 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 1) {
+                    // Modern Pompadour / Quiff
+                    frontHairSvg = `<path d="M46 56 C42 36, 56 14, 86 16 C108 18, 118 34, 114 56 C106 38, 92 32, 74 34 C58 36, 50 44, 46 56 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 2) {
+                    // Curly Mop Top
+                    frontHairSvg = `<path d="M43 56 C38 36, 52 22, 66 25 C76 16, 94 18, 100 26 C114 26, 120 42, 115 56 C106 44, 94 40, 80 42 C66 40, 52 44, 43 56 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 3) {
+                    // Spiky Textured
+                    frontHairSvg = `<path d="M46 56 L48 34 L62 24 L74 30 L84 18 L94 28 L108 24 L114 42 L114 56 C104 42, 90 38, 80 40 C66 38, 54 44, 46 56 Z" fill="${hair}" stroke="#1e293b" stroke-width="2.1"/>`;
+                } else if (hairIdx === 4) {
+                    // Short Buzz / Crew Cut
+                    frontHairSvg = `<path d="M47 54 C48 32, 64 26, 80 26 C96 26, 112 32, 113 54 C106 42, 94 39, 80 39 C66 39, 54 42, 47 54 Z" fill="${hair}" stroke="#1e293b" stroke-width="2"/>`;
+                } else {
+                    // Mature / Receding Side Hair
+                    frontHairSvg = `<path d="M46 58 C46 42, 54 34, 62 34 C56 42, 52 48, 48 58 Z M114 58 C114 42, 106 34, 98 34 C104 42, 108 48, 112 58 Z" fill="${hair}" stroke="#1e293b" stroke-width="1.8"/>`;
+                }
+            }
+
+            // Male Facial Hair (0: Clean, 1: Mustache, 2: Goatee, 3: Full Beard, 4: Light Stubble)
+            const beardIdx = isFemale ? 0 : ((h1 >>> 12) % 5);
+            let facialHairSvg = '';
+            if (beardIdx === 1) {
+                facialHairSvg = `<path d="M68 85 Q80 80 92 85 Q86 89 80 86 Q74 89 68 85 Z" fill="${hair}" stroke="#1e293b" stroke-width="1.3"/>`;
+            } else if (beardIdx === 2) {
+                facialHairSvg = `<path d="M69 86 Q80 81 91 86 M70 94 C72 106, 88 106, 90 94 L85 96 L75 96 Z" fill="${hair}" stroke="#1e293b" stroke-width="1.5"/>`;
+            } else if (beardIdx === 3) {
+                facialHairSvg = `<path d="M49 74 C49 94, 64 109, 80 109 C96 109, 111 94, 111 74 L106 78 C103 90, 94 94, 80 94 C66 94, 57 90, 54 78 Z" fill="${hair}" stroke="#1e293b" stroke-width="1.8"/>`;
+            } else if (beardIdx === 4) {
+                facialHairSvg = `<path d="M52 78 C54 96, 66 105, 80 105 C94 105, 106 96, 108 78" fill="none" stroke="${hair}" stroke-width="4" stroke-dasharray="1.5 2.5" opacity="0.45"/>`;
+            }
+
+            // 4 Glasses Styles (0: None, 1: Round Wire, 2: Rectangular Tortoise, 3: Thick Modern)
+            const glassesMode = ((h2 >>> 15) % 4 === 0 && !isSenior) ? 0 : (((h2 >>> 17) % 3) + 1);
+            const frameCol = pick(['#451a03', '#1e293b', '#7c2d12', '#334155'], h3, 8);
+            let glassesSvg = '';
+            if (glassesMode === 1) {
+                glassesSvg = `
+                    <circle cx="66" cy="68" r="10.5" fill="rgba(255,255,255,0.16)" stroke="${frameCol}" stroke-width="2"/>
+                    <circle cx="94" cy="68" r="10.5" fill="rgba(255,255,255,0.16)" stroke="${frameCol}" stroke-width="2"/>
+                    <path d="M76.5 67 Q80 64 83.5 67" fill="none" stroke="${frameCol}" stroke-width="2"/>
+                    <line x1="48" y1="66" x2="55.5" y2="67" stroke="${frameCol}" stroke-width="1.8"/>
+                    <line x1="104.5" y1="67" x2="112" y2="66" stroke="${frameCol}" stroke-width="1.8"/>
+                `;
+            } else if (glassesMode === 2) {
+                glassesSvg = `
+                    <rect x="54" y="61" width="22" height="14" rx="4" fill="rgba(255,255,255,0.18)" stroke="${frameCol}" stroke-width="2.3"/>
+                    <rect x="84" y="61" width="22" height="14" rx="4" fill="rgba(255,255,255,0.18)" stroke="${frameCol}" stroke-width="2.3"/>
+                    <line x1="76" y1="67" x2="84" y2="67" stroke="${frameCol}" stroke-width="2.3"/>
+                    <line x1="48" y1="65" x2="54" y2="65" stroke="${frameCol}" stroke-width="2"/>
+                    <line x1="106" y1="65" x2="112" y2="65" stroke="${frameCol}" stroke-width="2"/>
+                `;
+            } else if (glassesMode === 3) {
+                glassesSvg = `
+                    <path d="M53 62 L76 62 L75 74 C75 77, 56 77, 55 73 Z" fill="rgba(255,255,255,0.18)" stroke="${frameCol}" stroke-width="2.8"/>
+                    <path d="M84 62 L107 62 L105 73 C104 77, 85 77, 85 74 Z" fill="rgba(255,255,255,0.18)" stroke="${frameCol}" stroke-width="2.8"/>
+                    <line x1="76" y1="65" x2="84" y2="65" stroke="${frameCol}" stroke-width="2.8"/>
+                `;
+            }
+
+            // 3 Mouth Expressions
+            const mouthIdx = (h3 >>> 12) % 3;
+            const lipCol = isFemale ? pick(['#be123c', '#e11d48', '#9f1239'], h1, 14) : '#1e293b';
+            let mouthSvg = `<path d="M70 90 Q80 96 90 90" fill="none" stroke="${lipCol}" stroke-width="2.3" stroke-linecap="round"/>`;
+            if (mouthIdx === 1) {
+                mouthSvg = `<path d="M69 89 Q80 99 91 89 Z" fill="#ffffff" stroke="${lipCol}" stroke-width="2" stroke-linejoin="round"/>`;
+            } else if (mouthIdx === 2) {
+                mouthSvg = `<path d="M72 91 Q81 93 90 89" fill="none" stroke="${lipCol}" stroke-width="2.3" stroke-linecap="round"/>`;
+            }
+
+            const uidGrad = 'rngBg_' + (s % 99999);
+            return `
+            <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="${uidGrad}" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stop-color="${bgPair[0]}"/>
+                        <stop offset="100%" stop-color="${bgPair[1]}"/>
+                    </radialGradient>
+                </defs>
+                <circle cx="80" cy="80" r="80" fill="url(#${uidGrad})"/>
+                ${outfitSvg}
+                <!-- Neck -->
+                <rect x="67" y="96" width="26" height="24" rx="8" fill="${skin}" stroke="#1e293b" stroke-width="2"/>
+                ${backHairSvg}
+                <!-- Ears -->
+                <ellipse cx="46" cy="74" rx="5.5" ry="9" fill="${skin}" stroke="#1e293b" stroke-width="2"/>
+                <ellipse cx="114" cy="74" rx="5.5" ry="9" fill="${skin}" stroke="#1e293b" stroke-width="2"/>
+                ${isFemale ? `<circle cx="46" cy="83" r="2.4" fill="${accentCol}"/><circle cx="114" cy="83" r="2.4" fill="${accentCol}"/>` : ''}
+                <!-- Face Shape -->
+                <path d="${facePath}" fill="${skin}" stroke="#1e293b" stroke-width="2.2"/>
+                <!-- Subtle Cheek Blush / Age Lines -->
+                ${isFemale ? `<ellipse cx="59" cy="80" rx="5" ry="2.8" fill="#f43f5e" opacity="0.22"/><ellipse cx="101" cy="80" rx="5" ry="2.8" fill="#f43f5e" opacity="0.22"/>` : ''}
+                ${isSenior ? `<path d="M64 49 Q80 52 96 49" fill="none" stroke="#854d0e" stroke-width="1" opacity="0.45"/><path d="M62 84 Q58 90 63 94" fill="none" stroke="#854d0e" stroke-width="1" opacity="0.45"/><path d="M98 84 Q102 90 97 94" fill="none" stroke="#854d0e" stroke-width="1" opacity="0.45"/>` : ''}
+                ${facialHairSvg}
+                ${frontHairSvg}
+                <!-- Eyebrows -->
+                <path d="M58 59 Q66 55 73 59" fill="none" stroke="#1e293b" stroke-width="${isFemale ? '1.8' : '2.4'}" stroke-linecap="round"/>
+                <path d="M87 59 Q94 55 102 59" fill="none" stroke="#1e293b" stroke-width="${isFemale ? '1.8' : '2.4'}" stroke-linecap="round"/>
+                <!-- Eyes -->
+                <circle cx="66" cy="68" r="3" fill="#1e293b"/>
+                <circle cx="94" cy="68" r="3" fill="#1e293b"/>
+                <circle cx="65" cy="67" r="1" fill="#ffffff"/>
+                <circle cx="93" cy="67" r="1" fill="#ffffff"/>
+                ${glassesSvg}
+                <!-- Nose -->
+                <path d="M80 68 L78 80 Q80 82 83 80" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+                ${mouthSvg}
+            </svg>`;
+        }
+
+        function ntGenerateNewFakeIdentity(showNotification = false) {
+            const chosenGender = (rngGender === 'male' || rngGender === 'female')
+                ? rngGender
+                : (Math.random() < 0.5 ? 'male' : 'female');
+
+            // Resolve Name Set pool
+            let firstWord = 'Samantha';
+            let lastWord = 'Butler';
+            if (rngNameSet === 'lovecraft') {
+                const lcFirst = chosenGender === 'female' ? ['Asenath', 'Lavinia', 'Keziah', 'Eleanor', 'Miriam', 'Sylvia'] : ['Randolph', 'Herbert', 'Wilbur', 'Armitage', 'Francis', 'Richard'];
+                const lcLast = ['Waite', 'Whateley', 'Carter', 'West', 'Marsh', 'Gilman', 'Pickman', 'peaslee'];
+                firstWord = lcFirst[Math.floor(Math.random() * lcFirst.length)];
+                lastWord = cleanAsciiTitleWord(lcLast[Math.floor(Math.random() * lcLast.length)]);
+            } else if (rngNameSet === 'oz') {
+                const ozFirst = chosenGender === 'female' ? ['Dorothy', 'Glinda', 'Ozma', 'Jinjur', 'Mombi', 'Trot'] : ['Oscar', 'Boq', 'Nick', 'Tippetarius', 'Cap', 'Zeb'];
+                const ozLast = ['Gale', 'Diggs', 'Chopper', 'hugson', 'Munchkin', 'Gillikin', 'Winkie'];
+                firstWord = ozFirst[Math.floor(Math.random() * ozFirst.length)];
+                lastWord = cleanAsciiTitleWord(ozLast[Math.floor(Math.random() * ozLast.length)]);
+            } else {
+                const nsMeta = RNG_NAME_SETS.find(n => n.code === rngNameSet);
+                const regionCode = nsMeta ? nsMeta.region : (rngCountry || 'us');
+                const fullPair = synthesizeDynamicCountryName(regionCode, chosenGender);
+                const parts = fullPair.split(' ');
+                firstWord = parts[0] || 'Samantha';
+                lastWord = parts.slice(1).join(' ') || 'Butler';
+            }
+
+            const midLetters = 'ABCDEFGHJKLMNPRSTUVWZ';
+            const middleInitial = midLetters[Math.floor(Math.random() * midLetters.length)];
+
+            // Resolve Country Address & Phone Profile
+            const cCode = String(rngCountry || 'us').toLowerCase();
+            const cMeta = getCountryMeta(cCode) || getCountryMeta('us');
+            const addrProf = RNG_COUNTRY_ADDRESS_PROFILES[cCode] || RNG_COUNTRY_ADDRESS_PROFILES.us;
+            let streetNum = Math.floor(100 + Math.random() * 8999);
+            let streetName = addrProf.streets[Math.floor(Math.random() * addrProf.streets.length)];
+
+            // Use BUILTIN_COUNTRY_STATES_CITIES if available for rich state/city variety
+            let city = 'Ukiah', state = 'CA', zip = '95482', area = '707', lat = 39.179099, lon = -123.270511;
+            const locPick = addrProf.locations[Math.floor(Math.random() * addrProf.locations.length)];
+            if (locPick) {
+                city = locPick.city;
+                state = locPick.state;
+                zip = locPick.zip;
+                area = locPick.area;
+                lat = +(locPick.lat + (Math.random() - 0.5) * 0.08).toFixed(6);
+                lon = +(locPick.lon + (Math.random() - 0.5) * 0.08).toFixed(6);
+            } else if (BUILTIN_COUNTRY_STATES_CITIES[cCode]) {
+                const stMap = BUILTIN_COUNTRY_STATES_CITIES[cCode];
+                const stKeys = Object.keys(stMap);
+                const rState = stKeys[Math.floor(Math.random() * stKeys.length)];
+                const rCities = stMap[rState] || ['Central City'];
+                city = rCities[Math.floor(Math.random() * rCities.length)];
+                state = rState.slice(0, 3).toUpperCase();
+                zip = String(Math.floor(10000 + Math.random() * 89999));
+            }
+
+            let phone = `${area}-${Math.floor(200 + Math.random() * 799)}-${Math.floor(1000 + Math.random() * 8999)}`;
+            if (cCode === 'bd') {
+                phone = `0${area}${Math.floor(10 + Math.random() * 89)}-${Math.floor(100000 + Math.random() * 899999)}`;
+            } else if (cCode === 'gb') {
+                phone = `${area} ${Math.floor(1000 + Math.random() * 8999)} ${Math.floor(1000 + Math.random() * 8999)}`;
+            }
+
+            // Birthday & Age
+            const minA = Math.min(rngMinAge, rngMaxAge);
+            const maxA = Math.max(rngMinAge, rngMaxAge);
+            const age = Math.floor(minA + Math.random() * (maxA - minA + 1));
+            const currentYear = 2026;
+            const birthYear = currentYear - age;
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const bMonthIdx = Math.floor(Math.random() * 12);
+            const bDay = Math.floor(1 + Math.random() * 28);
+            const birthdayStr = `${monthNames[bMonthIdx]} ${bDay}, ${birthYear}`;
+            const zodiac = ntGetZodiacSign(bMonthIdx + 1, bDay);
+
+            // Mother's Maiden Name
+            const maidenPool = ALIAS_REGION_POOLS.us.last;
+            const maidenName = maidenPool[Math.floor(Math.random() * maidenPool.length)];
+
+            // Online Credentials
+            const usernameSuffixes = ['88', '99', 'Pro', 'X', '2026', 'Prime', 'HQ', ''];
+            const username = `${firstWord}${lastWord.slice(0, 3)}${usernameSuffixes[Math.floor(Math.random() * usernameSuffixes.length)]}`;
+            const pwdChars = 'abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let password = '';
+            for (let i = 0; i < 10; i++) password += pwdChars[Math.floor(Math.random() * pwdChars.length)];
+            const website = RNG_DOMAINS_WEB[Math.floor(Math.random() * RNG_DOMAINS_WEB.length)];
+            const userAgent = RNG_USER_AGENTS[Math.floor(Math.random() * RNG_USER_AGENTS.length)];
+            const emailDom = RNG_EMAIL_DOMAINS[Math.floor(Math.random() * RNG_EMAIL_DOMAINS.length)];
+
+            // Finance & IDs
+            const ssnPrefix = `${Math.floor(100 + Math.random() * 799)}-${Math.floor(10 + Math.random() * 89)}-XXXX`;
+            const ssnFull = `${ssnPrefix.slice(0, 7)}${Math.floor(1000 + Math.random() * 8999)}`;
+            const cardObj = ntGenerateTestCard(rngCardBrand);
+            const expMonth = Math.floor(1 + Math.random() * 12);
+            const expYear = 2028 + Math.floor(Math.random() * 5);
+            const cvc2 = String(Math.floor(100 + Math.random() * 899));
+
+            // Work & Physical
+            const company = RNG_COMPANIES[Math.floor(Math.random() * RNG_COMPANIES.length)];
+            const occupation = RNG_OCCUPATIONS[Math.floor(Math.random() * RNG_OCCUPATIONS.length)];
+            const totalInches = chosenGender === 'female'
+                ? Math.floor(58 + Math.random() * 10)
+                : Math.floor(64 + Math.random() * 12);
+            const feet = Math.floor(totalInches / 12);
+            const inches = totalInches % 12;
+            const cm = Math.round(totalInches * 2.54);
+            const heightStr = `${feet}' ${inches}" (${cm} cm)`;
+
+            const lbs = +(chosenGender === 'female' ? (110 + Math.random() * 55) : (145 + Math.random() * 75)).toFixed(1);
+            const kg = +(lbs * 0.453592).toFixed(1);
+            const weightStr = `${lbs} lb (${kg} kg)`;
+            const bloodType = RNG_BLOOD_TYPES[Math.floor(Math.random() * RNG_BLOOD_TYPES.length)];
+
+            // Other
+            const favColor = RNG_COLORS[Math.floor(Math.random() * RNG_COLORS.length)];
+            const vehicle = RNG_VEHICLES[Math.floor(Math.random() * RNG_VEHICLES.length)];
+            const vin = ntGenerateVinNumber();
+            const guid = ntGenerateUuidV4();
+
+            rngCurrentIdentity = {
+                seed: Math.floor(Math.random() * 100000),
+                gender: chosenGender,
+                firstName: firstWord,
+                middleInitial,
+                lastName: lastWord,
+                street: `${streetNum} ${streetName}`,
+                cityStateZip: `${city}, ${state} ${zip}`,
+                countryName: cMeta ? cMeta.name : 'United States',
+                countryCode: cCode,
+                phone,
+                dialCode: addrProf.dialCode,
+                emailDom,
+                coords: `${lat}, ${lon}`,
+                username,
+                password,
+                website,
+                userAgent,
+                birthday: birthdayStr,
+                age,
+                ageStr: `${age} years old`,
+                zodiac,
+                maidenName,
+                ssnLabel: addrProf.ssnLabel,
+                ssn: ssnPrefix,
+                ssnFull,
+                ssnRevealed: false,
+                cardBrand: cardObj.brand,
+                cardNumber: cardObj.number,
+                cardNote: cardObj.note,
+                cardExpires: `${expMonth}/${expYear}`,
+                cvc2,
+                company,
+                occupation,
+                height: heightStr,
+                weight: weightStr,
+                bloodType,
+                favColor,
+                vehicle,
+                vin,
+                guid
+            };
+
+            ntUpdateRngDisplay();
+            if (showNotification) {
+                const dispName = ntGetRngFormattedFullName();
+                showToast(`Generated new identity: ${dispName}`, 'success');
+            }
+        }
+
+        function ntGetRngFormattedFullName() {
+            if (!rngCurrentIdentity) return 'Samantha H. Butler';
+            const { firstName, middleInitial, lastName } = rngCurrentIdentity;
+            if (rngNoMiddleInitial) {
+                return `${firstName} ${lastName}`;
+            }
+            return `${firstName} ${middleInitial}. ${lastName}`;
+        }
+
+        function ntGetRngFormattedEmail() {
+            if (!rngCurrentIdentity) return 'SamanthaHButler@armyspy.com';
+            const { firstName, middleInitial, lastName, emailDom } = rngCurrentIdentity;
+            const handle = rngNoMiddleInitial
+                ? `${firstName}${lastName}`
+                : `${firstName}${middleInitial}${lastName}`;
+            return `${handle.replace(/[^a-zA-Z0-9]/g, '')}@${emailDom}`;
+        }
+
+        function ntToggleRngMiddleInitial() {
+            rngNoMiddleInitial = !rngNoMiddleInitial;
+            safeSetStorage('nt_rng_no_mid_v1', rngNoMiddleInitial);
+            ntUpdateRngDisplay();
+            showToast(
+                rngNoMiddleInitial
+                    ? 'Middle letter hidden! Showing First & Last Name only.'
+                    : 'Middle initial enabled (e.g. First M. Last).',
+                'info'
+            );
+        }
+
+        function ntToggleRngDropdown(ddId, e) {
+            if (e) e.stopPropagation();
+            ['rngGenderDropdown', 'rngNameSetDropdown', 'rngCountryDropdown'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el && id !== ddId) el.classList.remove('active');
+            });
+            const target = document.getElementById(ddId);
+            if (target) target.classList.toggle('active');
+        }
+
+        function ntSelectRngGender(g) {
+            rngGender = g;
+            safeSetStorage('nt_rng_gender_v1', g);
+            document.getElementById('rngGenderDropdown')?.classList.remove('active');
+            ntSyncRngDropdownTriggers();
+            ntGenerateNewFakeIdentity(true);
+        }
+
+        function ntSelectRngNameSet(code) {
+            rngNameSet = code;
+            safeSetStorage('nt_rng_nameset_v1', code);
+            document.getElementById('rngNameSetDropdown')?.classList.remove('active');
+            ntSyncRngDropdownTriggers();
+            ntGenerateNewFakeIdentity(true);
+        }
+
+        function ntSelectRngCountry(code) {
+            rngCountry = code;
+            safeSetStorage('nt_rng_country_v1', code);
+            document.getElementById('rngCountryDropdown')?.classList.remove('active');
+            ntSyncRngDropdownTriggers();
+            ntGenerateNewFakeIdentity(true);
+        }
+
+        function ntSyncRngDropdownTriggers() {
+            const gTrig = document.getElementById('rngGenderTriggerText');
+            if (gTrig) {
+                const gMap = {
+                    random: '<i class="fa-solid fa-shuffle" style="color:var(--primary); width:18px;"></i> <span>Random</span>',
+                    male: '<i class="fa-solid fa-mars" style="color:var(--primary); width:18px;"></i> <span>Male</span>',
+                    female: '<i class="fa-solid fa-venus" style="color:var(--primary); width:18px;"></i> <span>Female</span>'
+                };
+                gTrig.innerHTML = gMap[rngGender] || gMap.random;
+            }
+            const gList = document.getElementById('rngGenderListItems');
+            if (gList) {
+                const opts = [
+                    { k: 'random', label: 'Random', tag: '50/50', icon: 'fa-solid fa-shuffle' },
+                    { k: 'male', label: 'Male', tag: 'MALE', icon: 'fa-solid fa-mars' },
+                    { k: 'female', label: 'Female', tag: 'FEMALE', icon: 'fa-solid fa-venus' }
+                ];
+                gList.innerHTML = opts.map(o => `
+                    <li class="${rngGender === o.k ? 'selected' : ''}" onclick="event.stopPropagation(); ntSelectRngGender('${o.k}')">
+                        <span class="country-item-left"><i class="${o.icon}" style="color:var(--primary); width:18px;"></i> <span>${o.label}</span></span>
+                        <span class="country-item-tag">${o.tag}</span>
+                    </li>
+                `).join('');
+            }
+
+            const nsMeta = RNG_NAME_SETS.find(n => n.code === rngNameSet) || RNG_NAME_SETS[0];
+            const nsTrig = document.getElementById('rngNameSetTriggerText');
+            if (nsTrig && nsMeta) {
+                nsTrig.innerHTML = `<i class="fa-solid fa-signature" style="color:var(--primary); width:18px;"></i> <span>${escapeHtml(nsMeta.name)}</span>`;
+            }
+            ntRenderRngNameSetList();
+
+            const cMeta = getCountryMeta(rngCountry) || getCountryMeta('us');
+            const cTrig = document.getElementById('rngCountryTriggerText');
+            if (cTrig && cMeta) {
+                cTrig.innerHTML = `${renderCountryFlagHtml(cMeta)} <span>${escapeHtml(cMeta.name)}</span>`;
+            }
+            ntRenderRngCountryList();
+        }
+
+        function ntRenderRngNameSetList() {
+            const listEl = document.getElementById('rngNameSetListItems');
+            if (!listEl) return;
+            const q = (rngNameSetSearchFilter || '').trim().toLowerCase();
+            const filtered = RNG_NAME_SETS.filter(n => !q || n.name.toLowerCase().includes(q) || n.code.toLowerCase().includes(q));
+            listEl.innerHTML = filtered.map(n => `
+                <li class="${n.code === rngNameSet ? 'selected' : ''}" onclick="event.stopPropagation(); ntSelectRngNameSet('${n.code}')">
+                    <span class="country-item-left"><i class="fa-solid fa-font" style="color:var(--primary); width:18px;"></i> <span>${escapeHtml(n.name)}</span></span>
+                    <span class="country-item-tag">${escapeHtml(n.tag)}</span>
+                </li>
+            `).join('');
+        }
+
+        function ntRenderRngCountryList() {
+            const listEl = document.getElementById('rngCountryListItems');
+            if (!listEl) return;
+            const q = (rngCountrySearchFilter || '').trim().toLowerCase();
+            const countries = ALIAS_COUNTRIES_LIST
+                .filter(c => c.code !== 'random' && (!q || c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q)))
+                .slice()
+                .sort((a, b) => a.name.localeCompare(b.name));
+            listEl.innerHTML = countries.map(item => `
+                <li class="${item.code === rngCountry ? 'selected' : ''}" onclick="event.stopPropagation(); ntSelectRngCountry('${item.code}')">
+                    <span class="country-item-left">
+                        ${renderCountryFlagHtml(item)}
+                        <span>${escapeHtml(item.name)}</span>
+                    </span>
+                    <span class="country-item-tag">${escapeHtml(item.tag)}</span>
+                </li>
+            `).join('');
+        }
+
+        function ntUpdateRngDisplay() {
+            if (!rngCurrentIdentity) return;
+            const p = rngCurrentIdentity;
+            const fullName = ntGetRngFormattedFullName();
+            const emailAddr = ntGetRngFormattedEmail();
+
+            const tickBtn = document.getElementById('rngNoMidToggleBtn');
+            if (tickBtn) tickBtn.classList.toggle('active', !!rngNoMiddleInitial);
+
+            const avatarBox = document.getElementById('rngAvatarIllustration');
+            if (avatarBox) avatarBox.innerHTML = ntBuildIllustratedAvatarSvg(p);
+
+            const nameEl = document.getElementById('rngFullNameText');
+            if (nameEl) nameEl.innerText = fullName;
+
+            const addrEl = document.getElementById('rngFullAddressText');
+            if (addrEl) addrEl.innerHTML = `${escapeHtml(p.street)}<br>${escapeHtml(p.cityStateZip)}`;
+
+            const firstEl = document.getElementById('rngMeaningFirstName');
+            if (firstEl) firstEl.innerText = p.firstName;
+
+            // Populate all 6 sections
+            const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
+            setTxt('rngValPhone', p.phone);
+            setTxt('rngValDialCode', p.dialCode);
+            setTxt('rngValEmail', emailAddr);
+            setTxt('rngValCoords', p.coords);
+
+            setTxt('rngValUsername', p.username);
+            setTxt('rngValPassword', p.password);
+            setTxt('rngValWebsite', p.website);
+            setTxt('rngValUserAgent', p.userAgent);
+
+            setTxt('rngValBirthday', p.birthday);
+            setTxt('rngValAge', p.ageStr);
+            setTxt('rngValZodiac', p.zodiac);
+            setTxt('rngValMaiden', p.maidenName);
+
+            setTxt('rngLblSsn', p.ssnLabel || 'SSN');
+            setTxt('rngValSsn', p.ssnRevealed ? p.ssnFull : p.ssn);
+            setTxt('rngLblCardBrand', p.cardBrand);
+            setTxt('rngValCardNum', p.cardNumber);
+            setTxt('rngValCardNote', p.cardNote);
+            setTxt('rngValCardExp', p.cardExpires);
+            setTxt('rngValCvc2', p.cvc2);
+
+            setTxt('rngValCompany', p.company);
+            setTxt('rngValOccupation', p.occupation);
+            setTxt('rngValHeight', p.height);
+            setTxt('rngValWeight', p.weight);
+            setTxt('rngValBlood', p.bloodType);
+
+            setTxt('rngValColor', p.favColor);
+            setTxt('rngValVehicle', p.vehicle);
+            setTxt('rngValVin', p.vin);
+            setTxt('rngValGuid', p.guid);
+        }
+
+        function ntCopyRngField(key) {
+            if (!rngCurrentIdentity) return;
+            const p = rngCurrentIdentity;
+            const fullName = ntGetRngFormattedFullName();
+            const emailAddr = ntGetRngFormattedEmail();
+            const map = {
+                name: fullName,
+                address: `${p.street}, ${p.cityStateZip}`,
+                phone: p.phone,
+                dialCode: p.dialCode,
+                email: emailAddr,
+                coords: p.coords,
+                username: p.username,
+                password: p.password,
+                website: p.website,
+                userAgent: p.userAgent,
+                birthday: p.birthday,
+                age: p.ageStr,
+                zodiac: p.zodiac,
+                maiden: p.maidenName,
+                ssn: p.ssnRevealed ? p.ssnFull : p.ssn,
+                card: p.cardNumber,
+                expires: p.cardExpires,
+                cvc2: p.cvc2,
+                company: p.company,
+                occupation: p.occupation,
+                height: p.height,
+                weight: p.weight,
+                blood: p.bloodType,
+                color: p.favColor,
+                vehicle: p.vehicle,
+                vin: p.vin,
+                guid: p.guid
+            };
+            const val = map[key] || '';
+            copyTextValue(val, `Copied: ${val.length > 36 ? val.slice(0, 36) + '...' : val}`);
+        }
+
+        function ntCopyRngSection(secName) {
+            if (!rngCurrentIdentity) return;
+            const p = rngCurrentIdentity;
+            const emailAddr = ntGetRngFormattedEmail();
+            let lines = [];
+            if (secName === 'contact') {
+                lines = [
+                    `Phone: ${p.phone}`,
+                    `Country code: ${p.dialCode}`,
+                    `Email address: ${emailAddr}`,
+                    `Coordinates: ${p.coords}`
+                ];
+            } else if (secName === 'online') {
+                lines = [
+                    `Username: ${p.username}`,
+                    `Password: ${p.password}`,
+                    `Website: ${p.website}`,
+                    `Browser user agent: ${p.userAgent}`
+                ];
+            } else if (secName === 'personal') {
+                lines = [
+                    `Birthday: ${p.birthday}`,
+                    `Age: ${p.ageStr}`,
+                    `Tropical zodiac: ${p.zodiac}`,
+                    `Mother's maiden name: ${p.maidenName}`
+                ];
+            } else if (secName === 'finance') {
+                lines = [
+                    `${p.ssnLabel}: ${p.ssnRevealed ? p.ssnFull : p.ssn}`,
+                    `${p.cardBrand}: ${p.cardNumber} (${p.cardNote})`,
+                    `Expires: ${p.cardExpires}`,
+                    `CVC2: ${p.cvc2}`
+                ];
+            } else if (secName === 'work') {
+                lines = [
+                    `Company: ${p.company}`,
+                    `Occupation: ${p.occupation}`,
+                    `Height: ${p.height}`,
+                    `Weight: ${p.weight}`,
+                    `Blood type: ${p.bloodType}`
+                ];
+            } else if (secName === 'other') {
+                lines = [
+                    `Favorite color: ${p.favColor}`,
+                    `Vehicle: ${p.vehicle}`,
+                    `VIN: ${p.vin}`,
+                    `GUID: ${p.guid}`
+                ];
+            }
+            copyTextValue(lines.join('\n'), `Copied ${secName.toUpperCase()} section!`);
+        }
+
+        function ntBuildRngJsonPayload() {
+            if (!rngCurrentIdentity) return {};
+            const p = rngCurrentIdentity;
+            return {
+                name: ntGetRngFormattedFullName(),
+                firstName: p.firstName,
+                middleInitial: rngNoMiddleInitial ? '' : p.middleInitial,
+                lastName: p.lastName,
+                gender: p.gender,
+                address: {
+                    street: p.street,
+                    cityStateZip: p.cityStateZip,
+                    country: p.countryName,
+                    coordinates: p.coords
+                },
+                contact: {
+                    phone: p.phone,
+                    countryCode: p.dialCode,
+                    email: ntGetRngFormattedEmail()
+                },
+                online: {
+                    username: p.username,
+                    password: p.password,
+                    website: p.website,
+                    userAgent: p.userAgent
+                },
+                personal: {
+                    birthday: p.birthday,
+                    age: p.age,
+                    tropicalZodiac: p.zodiac,
+                    mothersMaidenName: p.maidenName
+                },
+                financeAndIds: {
+                    ssn: p.ssnRevealed ? p.ssnFull : p.ssn,
+                    cardBrand: p.cardBrand,
+                    cardNumber: p.cardNumber,
+                    expires: p.cardExpires,
+                    cvc2: p.cvc2
+                },
+                workAndPhysical: {
+                    company: p.company,
+                    occupation: p.occupation,
+                    height: p.height,
+                    weight: p.weight,
+                    bloodType: p.bloodType
+                },
+                other: {
+                    favoriteColor: p.favColor,
+                    vehicle: p.vehicle,
+                    vin: p.vin,
+                    guid: p.guid
+                }
+            };
+        }
+
+        function ntCopyRngAllAsJson() {
+            const payload = ntBuildRngJsonPayload();
+            copyTextValue(JSON.stringify(payload, null, 2), 'Copied full identity as JSON!');
+        }
+
+        function ntDownloadRngFile(fmt = 'json') {
+            const payload = ntBuildRngJsonPayload();
+            let content = '';
+            let ext = fmt;
+            if (fmt === 'json') {
+                content = JSON.stringify(payload, null, 2);
+            } else if (fmt === 'txt') {
+                content = [
+                    `Name: ${payload.name}`,
+                    `Address: ${payload.address.street}, ${payload.address.cityStateZip}`,
+                    `Phone: +${payload.contact.countryCode} ${payload.contact.phone}`,
+                    `Email: ${payload.contact.email}`,
+                    `Coordinates: ${payload.address.coordinates}`,
+                    `Username: ${payload.online.username} | Password: ${payload.online.password}`,
+                    `Website: ${payload.online.website}`,
+                    `User Agent: ${payload.online.userAgent}`,
+                    `Birthday: ${payload.personal.birthday} (${payload.personal.age} years old, ${payload.personal.tropicalZodiac})`,
+                    `Mother's Maiden Name: ${payload.personal.mothersMaidenName}`,
+                    `SSN: ${payload.financeAndIds.ssn} | ${payload.financeAndIds.cardBrand}: ${payload.financeAndIds.cardNumber} (Exp ${payload.financeAndIds.expires}, CVC ${payload.financeAndIds.cvc2})`,
+                    `Company: ${payload.workAndPhysical.company} — ${payload.workAndPhysical.occupation}`,
+                    `Height: ${payload.workAndPhysical.height} | Weight: ${payload.workAndPhysical.weight} | Blood: ${payload.workAndPhysical.bloodType}`,
+                    `Favorite Color: ${payload.other.favoriteColor} | Vehicle: ${payload.other.vehicle} | VIN: ${payload.other.vin}`,
+                    `GUID: ${payload.other.guid}`
+                ].join('\n');
+            }
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `identity_${(payload.name || 'profile').replace(/\s+/g, '_').toLowerCase()}.${ext}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast(`Downloaded identity as .${ext.toUpperCase()}!`, 'success');
+        }
+
+        function ntSaveCurrentRngIdentity() {
+            if (!rngCurrentIdentity) return;
+            const entry = {
+                name: ntGetRngFormattedFullName(),
+                address: `${rngCurrentIdentity.street}, ${rngCurrentIdentity.cityStateZip}`,
+                phone: rngCurrentIdentity.phone,
+                email: ntGetRngFormattedEmail(),
+                snapshot: JSON.parse(JSON.stringify(rngCurrentIdentity))
+            };
+            rngSavedIdentities.unshift(entry);
+            if (rngSavedIdentities.length > 15) rngSavedIdentities.pop();
+            safeSetStorage('nt_rng_saved_list_v1', rngSavedIdentities);
+            ntRenderSavedRngIdentities();
+            showToast(`Saved "${entry.name}" to Saved Identities!`, 'success');
+        }
+
+        function ntRenderSavedRngIdentities() {
+            const box = document.getElementById('rngSavedIdentitiesBox');
+            if (!box) return;
+            if (!Array.isArray(rngSavedIdentities) || rngSavedIdentities.length === 0) {
+                box.style.display = 'none';
+                return;
+            }
+            box.style.display = 'block';
+            const listEl = document.getElementById('rngSavedIdentitiesList');
+            if (!listEl) return;
+            listEl.innerHTML = rngSavedIdentities.map((item, idx) => `
+                <div class="saved-mail-item" onclick="rngCurrentIdentity=rngSavedIdentities[${idx}].snapshot; ntUpdateRngDisplay(); showToast('Loaded saved identity: ${escapeJsStr(item.name)}', 'info');">
+                    <div class="saved-mail-info">
+                        <div class="saved-mail-address">${escapeHtml(item.name)}</div>
+                        <div class="saved-mail-rawname">${escapeHtml(item.address)} &bull; ${escapeHtml(item.phone)}</div>
+                    </div>
+                    <div class="saved-mail-btns">
+                        <button type="button" class="icon-mini-btn danger" onclick="event.stopPropagation(); rngSavedIdentities.splice(${idx},1); safeSetStorage('nt_rng_saved_list_v1', rngSavedIdentities); ntRenderSavedRngIdentities(); showToast('Removed saved identity','info');"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function ntOpenRngEmailInTempMail() {
+            if (!rngCurrentIdentity) return;
+            const fullName = ntGetRngFormattedFullName();
+            ntOpenTool('temp-mail');
+            setTimeout(() => {
+                const nameInp = document.getElementById('nameInput');
+                const dispInp = document.getElementById('enteredNameDisplay');
+                if (nameInp && dispInp) {
+                    currentRawName = fullName.replace(/\./g, '');
+                    dispInp.value = currentRawName;
+                    nameInp.value = buildUsernameFromState();
+                    createMail(true);
+                }
+            }, 120);
+        }
+
+        function ntShowRngIdentityQrModal() {
+            if (!rngCurrentIdentity) return;
+            const p = rngCurrentIdentity;
+            const fullName = ntGetRngFormattedFullName();
+            const vcard = `MECARD:N:${fullName};ADR:${p.street}, ${p.cityStateZip};TEL:${p.phone};EMAIL:${ntGetRngFormattedEmail()};;`;
+            const box = document.getElementById('qrCanvasBox');
+            const label = document.getElementById('qrEmailLabel');
+            if (box && label) {
+                label.innerText = `${fullName} — ${p.street}, ${p.cityStateZip}`;
+                const mat = generateQrMatrix(vcard);
+                const size = mat.length;
+                const quiet = 4;
+                const total = size + quiet * 2;
+                let paths = '';
+                for (let r = 0; r < size; r++) {
+                    for (let c = 0; c < size; c++) {
+                        if (mat[r][c] === 1) paths += `M${c + quiet},${r + quiet}h1v1h-1z`;
+                    }
+                }
+                box.innerHTML = `<svg width="216" height="216" viewBox="0 0 ${total} ${total}" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg"><rect width="${total}" height="${total}" fill="#ffffff"/><path d="${paths}" fill="#0f172a"/></svg>`;
+                document.getElementById('qrModal')?.classList.add('open');
+            }
+        }
+
+        function ntRollRngPasswordOnly() {
+            if (!rngCurrentIdentity) return;
+            const chars = 'abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!@#$';
+            let pwd = '';
+            for (let i = 0; i < 11; i++) pwd += chars[Math.floor(Math.random() * chars.length)];
+            rngCurrentIdentity.password = pwd;
+            ntUpdateRngDisplay();
+            showToast(`Generated new password: ${pwd}`, 'info');
+        }
+
+        function ntCycleRngCardBrand() {
+            if (!rngCurrentIdentity) return;
+            const brands = ['Mastercard', 'Visa', 'Amex', 'Discover'];
+            const nextIdx = (brands.indexOf(rngCardBrand) + 1) % brands.length;
+            rngCardBrand = brands[nextIdx];
+            safeSetStorage('nt_rng_card_brand_v1', rngCardBrand);
+            const cardObj = ntGenerateTestCard(rngCardBrand);
+            rngCurrentIdentity.cardBrand = cardObj.brand;
+            rngCurrentIdentity.cardNumber = cardObj.number;
+            rngCurrentIdentity.cardNote = cardObj.note;
+            ntUpdateRngDisplay();
+            showToast(`Switched test card to ${cardObj.brand}!`, 'info');
+        }
+
         function ntRenderUniversalWorkspace(tool) {
             const card = document.getElementById('uniToolWorkspaceCard');
             if (!card) return;
             const id = tool.id;
+
+            // =========================================================
+            // 00. RANDOM NAME GENERATOR (FAKENAMEGENERATOR.COM REPLICA
+            //     WITH NEXTOOLS THEME, CUSTOM DROPDOWNS & NO-MIDDLE-LETTER TICK)
+            // =========================================================
+            if (id === 'random-name-generator') {
+                card.innerHTML = `
+                    <div class="nt-rng-wrapper">
+                        <!-- Top Intro Banner -->
+                        <div class="nt-rng-intro">
+                            <div style="max-width:820px;">
+                                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                                    <span class="mode-pill-tag real"><i class="fa-solid fa-id-card-clip"></i> FAKE NAME &amp; IDENTITY GENERATOR</span>
+                                    <span class="mode-pill-tag demo"><i class="fa-solid fa-code"></i> Open-Source Identity Engine</span>
+                                </div>
+                                <p style="margin:0;">
+                                    <strong>Random Name Generator</strong> creates realistic, fictional identities (names, street addresses, phone numbers, birthdays, online credentials, test credit cards, work &amp; physical profiles) across 35+ name sets and 195 countries for software QA, form testing, and privacy protection.
+                                </p>
+                            </div>
+                            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                                <button type="button" class="secondary-btn" onclick="ntDownloadRngFile('txt')"><i class="fa-solid fa-file-lines"></i> Export .TXT</button>
+                                <button type="button" class="primary-btn small" onclick="ntCopyRngAllAsJson()"><i class="fa-solid fa-code"></i> Copy All as JSON</button>
+                            </div>
+                        </div>
+
+                        <!-- Filter Controls Card (NexTools Custom Dropdowns + No Middle Letter Tick) -->
+                        <div class="nt-rng-controls-card">
+                            <div class="nt-rng-controls-grid">
+                                <!-- 1. Gender Custom Dropdown -->
+                                <div>
+                                    <div class="field-label"><span><i class="fa-solid fa-venus-mars" style="color:var(--primary);"></i> Gender</span></div>
+                                    <div class="country-select-dropdown" id="rngGenderDropdown">
+                                        <div class="country-select-trigger" onclick="ntToggleRngDropdown('rngGenderDropdown', event)">
+                                            <span id="rngGenderTriggerText" class="country-item-left"></span>
+                                            <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                                        </div>
+                                        <ul class="country-select-list" id="rngGenderListItems"></ul>
+                                    </div>
+                                </div>
+
+                                <!-- 2. Name Set Custom Dropdown -->
+                                <div>
+                                    <div class="field-label"><span><i class="fa-solid fa-signature" style="color:var(--primary);"></i> Name set</span></div>
+                                    <div class="country-select-dropdown" id="rngNameSetDropdown">
+                                        <div class="country-select-trigger" onclick="ntToggleRngDropdown('rngNameSetDropdown', event)">
+                                            <span id="rngNameSetTriggerText" class="country-item-left"></span>
+                                            <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                                        </div>
+                                        <div class="country-select-list" style="padding-top:0;">
+                                            <div style="position:sticky; top:0; background:var(--bg-surface); padding:8px; border-bottom:1px solid var(--border-color); z-index:5;" onclick="event.stopPropagation();">
+                                                <input type="text" class="std-input" style="margin-bottom:0; height:34px; font-size:12.5px;" placeholder="Search name set (e.g. American, Bengali)..." oninput="rngNameSetSearchFilter=this.value; ntRenderRngNameSetList();">
+                                            </div>
+                                            <ul id="rngNameSetListItems" style="list-style:none; margin:0; padding:0;"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3. Country Custom Dropdown (With Flags) -->
+                                <div>
+                                    <div class="field-label"><span><i class="fa-solid fa-earth-americas" style="color:var(--primary);"></i> Country</span></div>
+                                    <div class="country-select-dropdown" id="rngCountryDropdown">
+                                        <div class="country-select-trigger" onclick="ntToggleRngDropdown('rngCountryDropdown', event)">
+                                            <span id="rngCountryTriggerText" class="country-item-left"></span>
+                                            <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                                        </div>
+                                        <div class="country-select-list" style="padding-top:0;">
+                                            <div style="position:sticky; top:0; background:var(--bg-surface); padding:8px; border-bottom:1px solid var(--border-color); z-index:5;" onclick="event.stopPropagation();">
+                                                <input type="text" class="std-input" style="margin-bottom:0; height:34px; font-size:12.5px;" placeholder="Search country (e.g. United States, UK)..." oninput="rngCountrySearchFilter=this.value; ntRenderRngCountryList();">
+                                            </div>
+                                            <ul id="rngCountryListItems" style="list-style:none; margin:0; padding:0;"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4. Generate Button -->
+                                <button type="button" class="nt-rng-generate-btn" onclick="ntGenerateNewFakeIdentity(true)">
+                                    <i class="fa-solid fa-rotate"></i> Generate
+                                </button>
+
+                                <!-- 5. Advanced Options Button -->
+                                <button type="button" class="secondary-btn" style="height:42px; padding:0 14px;" onclick="document.getElementById('rngAdvOptionsPanel')?.classList.toggle('open')">
+                                    <i class="fa-solid fa-sliders"></i> Advanced options
+                                </button>
+                            </div>
+
+                            <!-- Sub-bar: Quick Name Set Links + "Hide Middle Letter" Checkbox Toggle -->
+                            <div class="nt-rng-subbar">
+                                <div class="nt-rng-nameset-links">
+                                    <span>Name sets for this country: <a onclick="ntSelectRngNameSet('us')">American</a> <a onclick="ntSelectRngNameSet('sp')">Hispanic</a> &bull; Themed name sets: <a onclick="ntSelectRngNameSet('lovecraft')">Lovecraftian</a> <a onclick="ntSelectRngNameSet('oz')">Oz</a> <a onclick="ntSelectRngNameSet('bd')">Bengali</a></span>
+                                </div>
+
+                                <!-- USER-REQUESTED TICK OPTION TO HIDE MIDDLE INITIAL LETTER -->
+                                <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                                    <button type="button" class="modifier-toggle-btn ${rngNoMiddleInitial ? 'active' : ''}" id="rngNoMidToggleBtn" onclick="ntToggleRngMiddleInitial()" style="padding:8px 14px; font-size:12.5px;">
+                                        <span class="tick-box"><i class="fa-solid fa-check"></i></span>
+                                        <span>Hide Middle Letter (No Middle Initial, e.g. First Last)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Expandable Advanced Options Panel (Age Range & Card Brand) -->
+                            <div class="nt-rng-adv-panel" id="rngAdvOptionsPanel">
+                                <div class="api-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px;">
+                                    <div>
+                                        <label class="field-label"><span>Minimum Age (<span id="rngMinAgeLbl">${rngMinAge}</span> yrs)</span></label>
+                                        <input type="range" class="progression-slider" min="18" max="85" value="${rngMinAge}" oninput="rngMinAge=parseInt(this.value,10); document.getElementById('rngMinAgeLbl').innerText=this.value; safeSetStorage('nt_rng_min_age_v1', rngMinAge);">
+                                    </div>
+                                    <div>
+                                        <label class="field-label"><span>Maximum Age (<span id="rngMaxAgeLbl">${rngMaxAge}</span> yrs)</span></label>
+                                        <input type="range" class="progression-slider" min="19" max="95" value="${rngMaxAge}" oninput="rngMaxAge=parseInt(this.value,10); document.getElementById('rngMaxAgeLbl').innerText=this.value; safeSetStorage('nt_rng_max_age_v1', rngMaxAge);">
+                                    </div>
+                                    <div>
+                                        <label class="field-label"><span>Default Test Card Network</span></label>
+                                        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                                            ${['Mastercard', 'Visa', 'Amex', 'Discover'].map(b => `
+                                                <button type="button" class="secondary-btn" style="padding:5px 10px; font-size:11.5px;" onclick="rngCardBrand='${b}'; safeSetStorage('nt_rng_card_brand_v1','${b}'); ntGenerateNewFakeIdentity(true);">${b}</button>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Identity Hero Card (Avatar Illustration + Full Name + Address + Action Buttons) -->
+                        <div class="nt-rng-identity-hero">
+                            <div class="nt-rng-avatar-wrap" id="rngAvatarIllustration" style="cursor:pointer;" onclick="if(rngCurrentIdentity){rngCurrentIdentity.seed=Math.floor(Math.random()*100000); ntUpdateRngDisplay(); showToast('Generated new portrait look!','info');}" title="Click to switch portrait style"></div>
+                            <div class="nt-rng-hero-info">
+                                <div class="nt-rng-eyebrow">YOUR RANDOMLY GENERATED IDENTITY</div>
+                                <div class="nt-rng-fullname-row">
+                                    <div class="nt-rng-fullname" id="rngFullNameText">Samantha H. Butler</div>
+                                    <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('name')" title="Copy Name"><i class="fa-regular fa-copy"></i></button>
+                                </div>
+                                <div class="nt-rng-address-row">
+                                    <div class="nt-rng-address-text" id="rngFullAddressText">3719 Fairway Drive<br>Ukiah, CA 95482</div>
+                                    <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('address')" title="Copy Address"><i class="fa-regular fa-copy"></i></button>
+                                </div>
+                                <div class="nt-rng-meaning-line">
+                                    Curious what <strong id="rngMeaningFirstName">Samantha</strong> means? <a onclick="showToast('Name origin: Classic heritage name meaning Listener / Noble Persona.', 'info')">See its meaning</a>
+                                </div>
+                                <div class="nt-rng-hero-actions">
+                                    <button type="button" class="secondary-btn" onclick="ntSaveCurrentRngIdentity()">
+                                        <i class="fa-regular fa-bookmark"></i> Save Identity
+                                    </button>
+                                    <button type="button" class="primary-btn small" onclick="ntCopyRngAllAsJson()">
+                                        <i class="fa-solid fa-code"></i> Copy all as JSON
+                                    </button>
+                                    <button type="button" class="secondary-btn" onclick="ntDownloadRngFile('json')">
+                                        <i class="fa-solid fa-download"></i> Download .JSON
+                                    </button>
+                                    <button type="button" class="secondary-btn" onclick="ntCopyRngField('name'); showToast('Identity link & summary copied to share!', 'success')">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Saved Identities Strip (Shown when user saves an identity) -->
+                        <div id="rngSavedIdentitiesBox" class="card-box" style="display:none; padding:16px 20px;">
+                            <div class="card-header-row" style="margin-bottom:10px; padding-bottom:8px;">
+                                <h3 class="section-title" style="font-size:13.5px;"><i class="fa-solid fa-bookmark"></i> Saved Identities</h3>
+                                <button type="button" class="quick-link-btn" onclick="rngSavedIdentities=[]; safeSetStorage('nt_rng_saved_list_v1',[]); ntRenderSavedRngIdentities();">Clear Saved</button>
+                            </div>
+                            <div class="saved-mails-grid" id="rngSavedIdentitiesList"></div>
+                        </div>
+
+                        <!-- 6 Detailed Data Sections (2-Column Grid matching FakeNameGenerator screenshots) -->
+                        <div class="nt-rng-sections-grid">
+                            <!-- SECTION 1: CONTACT -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-address-book"></i> CONTACT</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('contact')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Phone</div>
+                                        <div class="nt-rng-field-val mono" id="rngValPhone">707-467-9952</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('phone')" title="Copy Phone"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Country code</div>
+                                        <div class="nt-rng-field-val mono" id="rngValDialCode">1</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('dialCode')" title="Copy Country Code"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Email address</div>
+                                        <div class="nt-rng-field-val">
+                                            <span class="mono" id="rngValEmail">SamanthaHButler@armyspy.com</span>
+                                            <span class="nt-rng-field-sub">A real inbox. <a onclick="ntOpenRngEmailInTempMail()">Open it at NexTools Temp Mail</a></span>
+                                        </div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('email')" title="Copy Email"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Coordinates</div>
+                                        <div class="nt-rng-field-val mono" style="color:var(--primary);" id="rngValCoords">39.179099, -123.270511</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('coords')" title="Copy Coordinates"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 2: ONLINE -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-globe"></i> ONLINE</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('online')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Username</div>
+                                        <div class="nt-rng-field-val mono" id="rngValUsername">Ligger</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('username')" title="Copy Username"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Password</div>
+                                        <div class="nt-rng-field-val mono" id="rngValPassword">se3aezeiS</div>
+                                        <div class="nt-rng-field-actions">
+                                            <button type="button" class="nt-rng-copy-sq" onclick="ntRollRngPasswordOnly()" title="Regenerate Password"><i class="fa-solid fa-gear"></i></button>
+                                            <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('password')" title="Copy Password"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Website</div>
+                                        <div class="nt-rng-field-val mono" id="rngValWebsite">prestovps.com</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('website')" title="Copy Website"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Browser user agent</div>
+                                        <div class="nt-rng-field-val mono" style="font-size:11.8px; line-height:1.45;" id="rngValUserAgent">Mozilla/5.0 (iPhone; CPU iPhone OS 18_4 like Mac OS X)</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('userAgent')" title="Copy User Agent"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 3: PERSONAL -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-user-check"></i> PERSONAL</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('personal')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Birthday</div>
+                                        <div class="nt-rng-field-val" id="rngValBirthday">September 11, 1942</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('birthday')" title="Copy Birthday"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Age</div>
+                                        <div class="nt-rng-field-val" id="rngValAge">84 years old</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('age')" title="Copy Age"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Tropical zodiac</div>
+                                        <div class="nt-rng-field-val" id="rngValZodiac">Virgo</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('zodiac')" title="Copy Zodiac"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Mother's maiden name</div>
+                                        <div class="nt-rng-field-val" id="rngValMaiden">Davis</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('maiden')" title="Copy Mother's Maiden Name"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 4: FINANCE & IDS -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-credit-card"></i> FINANCE &amp; IDS</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('finance')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl" id="rngLblSsn">SSN</div>
+                                        <div class="nt-rng-field-val">
+                                            <span class="mono" id="rngValSsn">616-98-XXXX</span>
+                                            <span class="nt-rng-field-sub"><a onclick="if(rngCurrentIdentity){rngCurrentIdentity.ssnRevealed=!rngCurrentIdentity.ssnRevealed; ntUpdateRngDisplay();}">Toggle full SSN</a></span>
+                                        </div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('ssn')" title="Copy SSN"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl" id="rngLblCardBrand">Mastercard</div>
+                                        <div class="nt-rng-field-val">
+                                            <span class="mono" id="rngValCardNum">5555 5555 5555 4444</span>
+                                            <span class="nt-rng-field-sub" id="rngValCardNote">Adyen test card</span>
+                                        </div>
+                                        <div class="nt-rng-field-actions">
+                                            <button type="button" class="nt-rng-copy-sq" onclick="ntCycleRngCardBrand()" title="Switch Card Network (Mastercard / Visa / Amex)"><i class="fa-solid fa-gear"></i></button>
+                                            <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('card')" title="Copy Card Number"><i class="fa-regular fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Expires</div>
+                                        <div class="nt-rng-field-val mono" id="rngValCardExp">3/2030</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('expires')" title="Copy Expiration"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">CVC2</div>
+                                        <div class="nt-rng-field-val mono" id="rngValCvc2">737</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('cvc2')" title="Copy CVC2"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 5: WORK & PHYSICAL -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-briefcase"></i> WORK &amp; PHYSICAL</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('work')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Company</div>
+                                        <div class="nt-rng-field-val" id="rngValCompany">Edge Yard Service</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('company')" title="Copy Company"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Occupation</div>
+                                        <div class="nt-rng-field-val" id="rngValOccupation">Cabinetmaker</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('occupation')" title="Copy Occupation"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Height</div>
+                                        <div class="nt-rng-field-val mono" id="rngValHeight">4' 11" (150 cm)</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('height')" title="Copy Height"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Weight</div>
+                                        <div class="nt-rng-field-val mono" id="rngValWeight">119.0 lb (54.1 kg)</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('weight')" title="Copy Weight"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Blood type</div>
+                                        <div class="nt-rng-field-val mono" id="rngValBlood">O+</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('blood')" title="Copy Blood Type"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 6: OTHER -->
+                            <div class="nt-rng-sec-card">
+                                <div class="nt-rng-sec-hdr">
+                                    <div class="nt-rng-sec-title"><i class="fa-solid fa-layer-group"></i> OTHER</div>
+                                    <button type="button" class="nt-rng-copy-sec-btn" onclick="ntCopyRngSection('other')">Copy section</button>
+                                </div>
+                                <div class="nt-rng-field-list">
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Favorite color</div>
+                                        <div class="nt-rng-field-val" id="rngValColor">Black</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('color')" title="Copy Favorite Color"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">Vehicle</div>
+                                        <div class="nt-rng-field-val" id="rngValVehicle">2003 Buick Rendezvous</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('vehicle')" title="Copy Vehicle"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">VIN</div>
+                                        <div class="nt-rng-field-val mono" id="rngValVin">3G5DA03E13S459208</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('vin')" title="Copy VIN"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">GUID</div>
+                                        <div class="nt-rng-field-val mono" style="font-size:12px;" id="rngValGuid">ff344d56-65d2-41d1-90fb-4f7edc4894fa</div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntCopyRngField('guid')" title="Copy GUID"><i class="fa-regular fa-copy"></i></button>
+                                    </div>
+                                    <div class="nt-rng-field-row">
+                                        <div class="nt-rng-field-lbl">QR code</div>
+                                        <div class="nt-rng-field-val">
+                                            <a onclick="ntShowRngIdentityQrModal()" style="color:var(--primary); font-weight:800; cursor:pointer; text-decoration:underline;"><i class="fa-solid fa-qrcode"></i> Show the QR code</a>
+                                        </div>
+                                        <button type="button" class="nt-rng-copy-sq" onclick="ntShowRngIdentityQrModal()" title="Show QR Code"><i class="fa-solid fa-qrcode"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                rngCountrySearchFilter = '';
+                rngNameSetSearchFilter = '';
+                ntSyncRngDropdownTriggers();
+                if (!rngCurrentIdentity) {
+                    ntGenerateNewFakeIdentity(false);
+                } else {
+                    ntUpdateRngDisplay();
+                }
+                ntRenderSavedRngIdentities();
+                return;
+            }
+
 
             // =========================================================
             // 0A. CITY LIST EXPLORER (195 COUNTRIES WITH FLAGS, DEFAULT USA,
@@ -21734,10 +23582,13 @@ Quick Test OTP Code: 582910`,
             ntSyncRouteFromBrowserUrl();
         });
 
-        // Close City List dropdowns on outside click
+        // Close City List & Random Name Generator dropdowns on outside click
         document.addEventListener('click', () => {
             document.getElementById('cityCountryDropdown')?.classList.remove('active');
             document.getElementById('cityStateDropdown')?.classList.remove('active');
+            document.getElementById('rngGenderDropdown')?.classList.remove('active');
+            document.getElementById('rngNameSetDropdown')?.classList.remove('active');
+            document.getElementById('rngCountryDropdown')?.classList.remove('active');
         });
 
         // Master Initialization on Page Load
